@@ -2,7 +2,7 @@
 import pandas as pd
 
 # Define a function to load crop data from a CSV file
-def load_crop_data(path=''):
+def load_crop_data(path='data/raw/crop_yield.csv'):
     """
     Load crop data from a CSV file.
 
@@ -16,7 +16,7 @@ def load_crop_data(path=''):
     return pd.read_csv(path)
 
 # Define a function to load climate data from a CSV file
-def load_climate_data(path=''):
+def load_climate_data(path='data/raw/climate_data.csv'):
     """
     Load climate data from a CSV file.
 
