@@ -2,6 +2,7 @@
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
+import numpy as np
 import joblib
 
 # Define a function to train a linear regression model on a given dataset
@@ -30,12 +31,16 @@ def train_model(df):
     y_pred = model.predict(X_test)
 
     # Evaluate the model's performance using Root Mean Squared Error (RMSE) and R-squared (R2)
-    rmse = mean_squared_error(y_test, y_pred, squared=False)
+    rmse = np.sqrt(mean_squared_error(y_test, y_pred))
     r2 = r2_score(y_test, y_pred)
 
     # Print the model's performance metrics
     print(f"RMSE: {rmse:.2f}")
     print(f"R^2: {r2:.2f}")
+    
+    # Ensure the 'models' directory exists before saving
+    import os
+    os.makedirs('models', exist_ok=True)
 
     # Save the trained model to a file
     joblib.dump(model, 'models/crop_yield_model.pkl')
