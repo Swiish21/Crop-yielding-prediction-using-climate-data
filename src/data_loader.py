@@ -15,7 +15,7 @@ def load_crop_data(path='data/raw/crop_yield.csv'):
     # Read the CSV file into a pandas DataFrame
     return pd.read_csv(path)
 
-# Define a function to load climate data from a CSV file
+# Define a function to load climate data from a CSV file in the defined path
 def load_climate_data(path='data/raw/climate_data.csv'):
     """
     Load climate data from a CSV file.
